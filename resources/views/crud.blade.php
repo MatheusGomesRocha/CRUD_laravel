@@ -76,7 +76,7 @@
 </head>
 
 <body>
-    <h1>olá mundo</h1>
+    <h1>Simple CRUD</h1>
 
     <div class="lineForm">
         <form action="/insert" method="post">
