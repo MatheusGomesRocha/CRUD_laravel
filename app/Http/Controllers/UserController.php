@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     
     public function viewCrud() {
-        // $users = User::Read();      // Função criada no Model
+        // $users = User::readUser();      // Função criada no Model
 
         /* ------------- OR -------------- */
 
@@ -23,7 +23,7 @@ class UserController extends Controller
         $email = $request->input('email');
 
         if($name && $email) {
-            // User::Insert($name, $email);     // Função criada no Model
+            // User::insertUser($name, $email);     // Função criada no Model
 
             /* ------------- OR -------------- */
 
@@ -39,9 +39,18 @@ class UserController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
 
-        if($name && $email) {
-            User::Insert($name, $email);
-            return redirect()->back();
+        $user = User::where('email', '=', $email)->first();
+
+        if($name) {
+            if($user) {
+                // User::updateUser($name, $email);     // Função criada no Model
+
+                User::where('email', $email)->update(['name' => $name]);        // Usando ELOQUENT, equivalente a mesma função acima, Edita o nome de um usuário com email igual ao email enviado.
+                
+                return redirect()->back();
+            } else {
+                return 'Email errado';
+            }
         } else {
             return 'error';
         }
@@ -49,7 +58,12 @@ class UserController extends Controller
 
     public function delete($email) {
         if($email) {
-            User::DeleteUser($email);
+            // User::deleteUser($email);        // Função criada no Model
+
+             /* ------------- OR -------------- */
+
+            User::where('email', '=', $email)->delete();        // Usando ELOQUENT, equivalente a mesma função acima, Deleta um usuário que o email seja igual ao email enviado via URL
+
             return redirect()->back();
         } else {
             return 'error';

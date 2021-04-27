@@ -15,12 +15,12 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $fillable = ['name', 'email'];
 
-    public static function Read() {
+    public static function redUser() {
         return DB::table('users')->get();
     }
     
 
-    public static function Insert($name, $email) {
+    public static function insertUser($name, $email) {
         return DB::table('users')
         ->insert([
             'name' => $name,
@@ -28,14 +28,13 @@ class User extends Authenticatable
         ]);
     }
 
-    // public static function Update($name, $email) {
-    //     return DB::table('users')->where('email', '=', $email)->update([
-    //         'name' => $name,
-    //         'email' => $email,
-    //     ]);
-    // }
+    public static function updateUser($name, $email) {
+        return DB::table('users')->where('email', '=', $email)->update([
+            'name' => $name,
+        ]);
+    }
 
-    public static function DeleteUser($email) {
+    public static function deleteUser($email) {
         return DB::table('users')->where('email', '=', $email)->delete();
     }
 }

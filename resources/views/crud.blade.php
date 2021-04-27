@@ -62,18 +62,39 @@
             transition: filter 200ms;
         }
 
+        .lineForm {
+            display: flex;
+            gap: 2rem;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
     </style>
 
 </head>
 
 <body>
     <h1>olá mundo</h1>
-    <form action="/insert" method="post">
-        @csrf
-        <input type="text" name="name" placeholder="Nome">
-        <input type="text" name="email" placeholder="Email">
-        <input id="submit" type="submit" value="Inserir">
-    </form>
+
+    <div class="lineForm">
+        <form action="/insert" method="post">
+            <h2>Adicionar um usuário</h2>
+            @csrf
+            <input type="text" name="name" placeholder="Nome">
+            <input type="text" name="email" placeholder="Email">
+            <input id="submit" type="submit" value="Inserir">
+        </form>
+
+        <form action="/update" method="post">
+            <h2>Editar usuário</h2>
+            @csrf
+            <input type="text" name="name" placeholder="Novo nome">
+            <input type="text" name="email" placeholder="Email do usuário a ser editado">
+            <input id="submit" type="submit" value="Inserir">
+        </form>
+    </div>
 
     <table>
         <thead>
