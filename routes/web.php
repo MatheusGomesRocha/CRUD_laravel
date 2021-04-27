@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\UserController::class, 'viewCrud'] );
+Route::post('/insert', [\App\Http\Controllers\UserController::class, 'postInsert'] );
