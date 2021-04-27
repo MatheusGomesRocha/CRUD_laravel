@@ -38,8 +38,34 @@
             cursor: pointer;
         }
 
-        button:hover {
+        button:hover,
+        #submit:hover {
             filter: brightness(0.9);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 2rem;
+            width: 30%;
+            background: darkblue;
+        }
+
+        input {
+            width: 20rem;
+            height: 3.5rem;
+            border-radius: 0.5rem;
+            padding-left: 0.75rem;
+            margin-top: 1rem;
+            outline: 0;
+            border: none;
+        }
+
+        #submit {
+            background: green;
+            color: #fff;
+            cursor: pointer;
+            transition: filter 200ms;
         }
 
     </style>
@@ -52,7 +78,7 @@
         @csrf
         <input type="text" name="name" placeholder="Nome">
         <input type="text" name="email" placeholder="Email">
-        <input type="submit" value="Inserir">
+        <input id="submit" type="submit" value="Inserir">
     </form>
 
     <table>
