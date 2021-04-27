@@ -9,7 +9,7 @@
 
         tr,
         td {
-            padding: 0.75rem 1rem;
+            padding: 1rem;
         }
 
         tr {
@@ -21,13 +21,7 @@
             padding: 0.75rem 0;
         }
 
-        tbody tr {
-            &+tr {
-                border-top: 1px solid #efefef;
-            }
-        }
-
-        button {
+        a {
             padding: 0.75rem 1rem;
             background: red;
             border: none;
@@ -38,7 +32,7 @@
             cursor: pointer;
         }
 
-        button:hover,
+        a:hover,
         #submit:hover {
             filter: brightness(0.9);
         }
@@ -97,7 +91,7 @@
                     <td>{{ $query->id }}</td>
                     <td>{{ $query->name }}</td>
                     <td>{{ $query->email }}</td>
-                    <td><button>Excluir</button></td>
+                    <td><a href="/delete/{{ $query->email }}">Excluir</a></td>
                 </tr>
             @endforeach
         </tbody>

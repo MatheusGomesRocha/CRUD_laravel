@@ -12,7 +12,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'crud_laravel';
+    protected $table = 'users';
+    protected $fillable = ['name', 'email'];
 
     public static function Read() {
         return DB::table('users')->get();
@@ -34,7 +35,7 @@ class User extends Authenticatable
     //     ]);
     // }
 
-    // public static function Delete($name, $email) {
-    //     return DB::table('users')->where('email', '=', $email)->delete();
-    // }
+    public static function DeleteUser($email) {
+        return DB::table('users')->where('email', '=', $email)->delete();
+    }
 }

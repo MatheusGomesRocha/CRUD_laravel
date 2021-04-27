@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\UserController::class, 'viewCrud'] );
-Route::post('/insert', [\App\Http\Controllers\UserController::class, 'postInsert'] );
+Route::post('/insert', [\App\Http\Controllers\UserController::class, 'insert'] );
+Route::get('/delete/{user}', [\App\Http\Controllers\UserController::class, 'delete'] );
+Route::put('/update', [\App\Http\update\UserController::class, 'update'] );
