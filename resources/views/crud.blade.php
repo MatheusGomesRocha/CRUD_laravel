@@ -92,7 +92,7 @@
             @csrf
             <input type="text" name="name" placeholder="Novo nome">
             <input type="text" name="email" placeholder="Email do usuário a ser editado">
-            <input id="submit" type="submit" value="Inserir">
+            <input id="submit" type="submit" value="Editar">
         </form>
     </div>
 
